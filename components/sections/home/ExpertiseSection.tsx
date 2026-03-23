@@ -33,7 +33,7 @@ const expertise = [
 export const ExpertiseSection = () => {
   return (
     <section className="w-full primary-gradient px-12 sm:px-24 md:px-30 lg:px-36.75 py-12 sm:py-24 md:py-30 lg:py-36.75">
-      <h2 className="text-white section-head mb-12 md:mb-18.25">
+      <h2 className="text-white section-title mb-12 md:mb-18.25">
         Our Areas of Expertise
       </h2>
 

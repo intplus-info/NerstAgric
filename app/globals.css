@@ -35,7 +35,7 @@
   }
 }
 
-@utility section-head {
+@utility section-title {
   font-size: 1.5rem;
   line-height: 41.2px;
   font-weight: 500;
@@ -46,6 +46,32 @@
   }
 }
 
+@utility section-head {
+  font-size: 1.6rem;
+  line-height: 40px;
+  font-weight: 500;
+  font-family: var(--font-urbanist);
+  text-align: center;
+
+  @variant sm {
+    font-size: 2rem;
+  }
+
+  @variant md {
+    font-size: 2.2rem;
+    line-height: 59px;
+  }
+
+  @variant lg {
+    font-size: 2.585rem;
+  }
+}
+
 @utility primary-gradient {
   background: linear-gradient(to bottom, var(--color-primary-light), var(--color-primary-dark));
+}
+
+@utility border-feint {
+  border-width: 0.5px;
+  border-color: #4961791A;
 }

@@ -2,7 +2,6 @@ import { HeroSection } from "@/components/sections/home/HeroSection";
 import { IntroSection } from "@/components/sections/home/IntroSection";
 import { ExpertiseSection } from "@/components/sections/home/ExpertiseSection";
 import { WhyUsSection } from "@/components/sections/home/WhyUsSection";
-import { CTABanner } from "@/components/sections/home/CTABanner";
 import { PartnersSection } from "@/components/sections/home/PartnersSection";
 import { BlogPreview } from "@/components/sections/home/BlogPreview";
 import { ContactForm } from "@/components/ui/ContactForm";
@@ -14,7 +13,6 @@ export default function Home() {
       <IntroSection />
       <ExpertiseSection />
       <WhyUsSection />
-      <CTABanner />
       <PartnersSection />
       <BlogPreview />
       <ContactForm />

@@ -83,7 +83,7 @@ export const IntroSection = () => {
       </div>
 
       <div>
-        <div className="section-head mb-13.25">
+        <div className="section-title mb-13.25">
           True experience
         </div>
 
