@@ -1,13 +1,46 @@
+interface AuthInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  label: string;
+  type: string;
+  id: string;
+  placdholder?: string;
+}
+
+export function AuthInput({
+  label,
+  type,
+  id,
+  placeholder,
+  ...props
+}: AuthInputProps) {
+  return (
+    <div className="flex flex-col gap-2">
+      <label
+        htmlFor={id}
+        className="text-[0.75rem] md:text-[0.875rem] leading-normal tracking-[0.14em] font-medium"
+      >
+        {label}
+      </label>
+      <input
+        id={id}
+        type={type}
+        placeholder={placeholder}
+        {...props}
+        className="w-full border rounded-[5px] bg-white/9 px-3 py-[9.5px] placeholder:text-white/46 placeholder:text-[0.75rem] placeholder:md:text-[0.875rem] placeholder:leading-normal placeholder:tracking-[0.015em]"
+      />
+    </div>
+  );
+}
+
 export const ContactForm = () => {
   return (
-    <section className="w-full bg-primary-dark px-8 sm:px-14 md:px-20 lg:px-26.25 py-16 md:py-24">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
+    <section className="w-full primary-gradient text-white px-8 sm:px-14 md:px-20 lg:px-24.5 py-14 md:py-16">
+      <div className="grid justify-center grid-cols-1 md:grid-cols-[minmax(0,391px)_minmax(0,646px)] gap-12 md:gap-11.75">
         {/* Left — heading */}
-        <div className="flex flex-col gap-4">
-          <h2 className="text-white text-2xl md:text-3xl font-bold">
+        <div className="flex flex-col gap-4 font-urbanist md:gap-5.75">
+          <h2 className="text-[1.6rem] md:text-[2rem] lg:text-[2.3325rem] leading-10 md:leading-[52.23px] font-medium text-pretty">
             Talk to Our Agriculture Experts
           </h2>
-          <p className="text-white/70 text-sm leading-relaxed">
+          <p className="section-text font-light">
             Speak directly with our experts to discuss your agribusiness ideas,
             project plans, or investment opportunities and receive professional
             guidance on the most effective implementation strategies.
@@ -15,89 +48,62 @@ export const ContactForm = () => {
         </div>
 
         {/* Right — form */}
-        <form className="flex flex-col gap-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="flex flex-col gap-1.5">
-              <label htmlFor="fullName" className="text-white/80 text-xs">
-                Full Name
-              </label>
-              <input
-                id="fullName"
-                type="text"
-                placeholder="Full Name"
-                className="bg-transparent border border-white/30 rounded px-4 py-2.5 text-white text-sm placeholder:text-white/40 focus:outline-none focus:border-white/60"
-              />
-            </div>
-            <div className="flex flex-col gap-1.5 sm:col-span-1">
-              {/* empty for grid alignment */}
-            </div>
+        <form className="flex flex-col gap-6.75 form-container">
+          <AuthInput
+            id="fullName"
+            label="Full Name"
+            type="text"
+            placeholder="Full Name"
+            required
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-7 gap-y-6.75">
+            <AuthInput
+              id="email"
+              label="Email Address"
+              type="email"
+              placeholder="Email Address"
+              required
+            />
+            <AuthInput
+              id="phone"
+              label="Phone Number"
+              type="tel"
+              placeholder="Phone Number"
+              required
+            />
+            <AuthInput
+              id="company"
+              label="Company"
+              type="text"
+              placeholder="Your Company"
+              required
+            />
+            <AuthInput
+              id="jobTitle"
+              label="Job Title"
+              type="text"
+              placeholder="Job Title"
+              required
+            />
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="flex flex-col gap-1.5">
-              <label htmlFor="email" className="text-white/80 text-xs">
-                Email Address
-              </label>
-              <input
-                id="email"
-                type="email"
-                placeholder="Email Address"
-                className="bg-transparent border border-white/30 rounded px-4 py-2.5 text-white text-sm placeholder:text-white/40 focus:outline-none focus:border-white/60"
-              />
-            </div>
-            <div className="flex flex-col gap-1.5">
-              <label htmlFor="phone" className="text-white/80 text-xs">
-                Phone Number
-              </label>
-              <input
-                id="phone"
-                type="tel"
-                placeholder="Phone Number"
-                className="bg-transparent border border-white/30 rounded px-4 py-2.5 text-white text-sm placeholder:text-white/40 focus:outline-none focus:border-white/60"
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="flex flex-col gap-1.5">
-              <label htmlFor="company" className="text-white/80 text-xs">
-                Company
-              </label>
-              <input
-                id="company"
-                type="text"
-                placeholder="Your Company"
-                className="bg-transparent border border-white/30 rounded px-4 py-2.5 text-white text-sm placeholder:text-white/40 focus:outline-none focus:border-white/60"
-              />
-            </div>
-            <div className="flex flex-col gap-1.5">
-              <label htmlFor="jobTitle" className="text-white/80 text-xs">
-                Job Title
-              </label>
-              <input
-                id="jobTitle"
-                type="text"
-                placeholder="Job Title"
-                className="bg-transparent border border-white/30 rounded px-4 py-2.5 text-white text-sm placeholder:text-white/40 focus:outline-none focus:border-white/60"
-              />
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-1.5">
-            <label htmlFor="description" className="text-white/80 text-xs">
+          <div className="flex flex-col gap-2">
+            <label
+              htmlFor="description"
+              className="text-[0.75rem] md:text-[0.875rem] leading-normal tracking-[0.14em] font-medium"
+            >
               Description
             </label>
             <textarea
               id="description"
-              placeholder="Tell us about your project..."
-              rows={5}
-              className="bg-transparent border border-white/30 rounded px-4 py-2.5 text-white text-sm placeholder:text-white/40 focus:outline-none focus:border-white/60 resize-none"
+              placeholder="Describe your needs"
+              rows={7}
+              className="border rounded-[5px] bg-white/9 p-3 placeholder:text-white/46 placeholder:text-[0.75rem] placeholder:md:text-[0.875rem] placeholder:leading-normal placeholder:tracking-[0.015em]"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-white text-primary-dark font-semibold py-3 rounded hover:bg-white/90 transition-colors mt-2"
+            className="w-full text-[#14293E] text-[0.75rem] md:text-[0.875rem] leading-normal tracking-[0.015em] border rounded-[5px] bg-white px-3 py-[14.5px] hover:bg-white/90 transition-colors mt-2"
           >
             Send Message
           </button>

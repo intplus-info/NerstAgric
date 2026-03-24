@@ -35,6 +35,16 @@
   }
 }
 
+@utility section-text {
+  font-size: 0.95rem;
+  line-height: 1.32;
+
+  @variant md {
+    font-size: 1.125rem;
+    line-height: 1.62;
+  }
+}
+
 @utility section-title {
   font-size: 1.5rem;
   line-height: 41.2px;
@@ -74,4 +84,18 @@
 @utility border-feint {
   border-width: 0.5px;
   border-color: #4961791A;
+}
+
+@utility form-container {
+  & label {
+    @apply section-text font-bold mb-2 block;
+  }
+  
+  & input {
+    @apply border p-2 rounded-lg;
+    
+    &::placeholder {
+      @apply text-slate-300;
+    }
+  }
 }

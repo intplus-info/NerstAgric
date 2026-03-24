@@ -33,7 +33,7 @@ export const WhyUsSection = () => {
             <h3 className="text-[1rem] md:text-[1.25rem] leading-6 md:leading-[31.96px] font-bold mb-2.25">
               {reason.title}
             </h3>
-            <p className="text-[0.95rem] md:text-[1.125rem] leading-5 tracking-[1px] font-medium">
+            <p className="section-text tracking-[1px] font-medium">
               {reason.body}
             </p>
           </div>

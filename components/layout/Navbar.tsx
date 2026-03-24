@@ -54,7 +54,7 @@ export const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <header className="sticky top-0 z-50">
+    <header className="sticky top-0 z-50 border-b border-white">
       <nav className="bg-black/48 w-full px-8 sm:px-14 md:px-20 lg:px-26.25 py-6.25">
         <div className="flex items-center justify-between">
           {/* Logo */}

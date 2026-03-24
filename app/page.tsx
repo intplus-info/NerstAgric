@@ -5,8 +5,11 @@ import { WhyUsSection } from "@/components/sections/home/WhyUsSection";
 import { PartnersSection } from "@/components/sections/home/PartnersSection";
 import { BlogPreview } from "@/components/sections/home/BlogPreview";
 import { ContactForm } from "@/components/ui/ContactForm";
+import { getPosts } from "@/lib/blog";
 
-export default function Home() {
+export default async function Home() {
+  const posts = await getPosts();
+
   return (
     <main>
       <HeroSection />
@@ -14,7 +17,7 @@ export default function Home() {
       <ExpertiseSection />
       <WhyUsSection />
       <PartnersSection />
-      <BlogPreview />
+      <BlogPreview posts={posts} />
       <ContactForm />
     </main>
   );
