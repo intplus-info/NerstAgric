@@ -15,7 +15,7 @@ export const AboutHero = () => {
       <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
 
       <div className="absolute bottom-0 left-0 right-0 z-10 bg-black/42 px-8 sm:px-16 md:px-22 lg:px-26.5 py-6 md:py-8 lg:py-10.75">
-        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,424px)_1fr] gap-6 md:gap-12 lg:gap-15.75 text-white font-urbanist">
+        <div className="grid grid-cols-1 md:grid-cols-[424fr_566fr] gap-6 md:gap-12 lg:gap-15.75 text-white font-urbanist">
           <h1 className="text-[2rem] leading-10 md:text-[2.1875rem] md:leading-12.25 tracking-[0.09em] font-semibold text-pretty">
             Turning Agricultural Potential into Industrial Performance
           </h1>
