@@ -92,9 +92,9 @@ export const BlogList = ({ posts }: { posts: Post[] }) => {
           {alternatePosts.map((post) => (
             <article
               key={post.slug}
-              className="grid grid-cols-1 md:grid-cols-2 gap-19 items-center"
+              className="grid grid-cols-1 md:grid-cols-2 items-center"
             >
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4 px-19">
                 <h2 className="text-black text-[2.5rem] md:text-[2.7775rem] leading-[100%] font-bold">
                   {post.title}
                 </h2>
