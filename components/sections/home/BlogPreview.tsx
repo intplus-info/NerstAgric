@@ -108,9 +108,9 @@ export const BlogPreview = ({ posts }: { posts: Post[] }) => {
               <path
                 d="M8.89518 4.81242L0.728516 4.81242M0.728516 4.81242L4.81185 8.89575M0.728516 4.81242L4.81185 0.729085"
                 stroke="#0DB04A"
-                stroke-width="1.45833"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.45833"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </button>
@@ -135,9 +135,9 @@ export const BlogPreview = ({ posts }: { posts: Post[] }) => {
               <path
                 d="M0.729817 4.81242L8.89648 4.81242M8.89648 4.81242L4.81315 8.89575M8.89648 4.81242L4.81315 0.729085"
                 stroke="#0DB04A"
-                stroke-width="1.45833"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.45833"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </button>

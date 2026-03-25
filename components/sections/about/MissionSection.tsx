@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export const MissionSection = () => {
   return (
-    <section className="w-full border-t-2 border-[#289238] font-urbanist">
+    <section className="w-full md:max-h-[426.67px] border-t-2 border-[#289238] font-urbanist">
       <div className="grid grid-cols-1 md:grid-cols-2">
         {/* Left */}
         <div className="px-12 sm:px-14 md:px-18 lg:px-21.25 py-14 md:py-19.5 flex flex-col gap-6 md:gap-10.5">
