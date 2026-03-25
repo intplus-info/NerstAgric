@@ -6,7 +6,7 @@ export const AboutHero = () => {
     <section className="relative min-h-screen w-full">
       <Navbar />
       <Image
-        src="/images/about/hero.jpg"
+        src="/images/hero2.jpg"
         alt="Two women working in an agricultural field"
         fill
         className="object-cover object-center"

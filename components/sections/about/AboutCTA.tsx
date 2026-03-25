@@ -5,7 +5,7 @@ export const AboutCTA = () => {
   return (
     <section className="relative w-full font-urbanist text-white overflow-hidden">
       <Image
-        src="/images/about/hero.jpg"
+        src="/images/hero2.jpg"
         alt=""
         fill
         sizes="100vw"

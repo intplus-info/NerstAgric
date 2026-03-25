@@ -97,6 +97,25 @@ export async function getPosts(): Promise<Post[]> {
         },
       ],
     },
+    {
+      slug: "what-is-lorem-ipsum",
+      title: "What is Lorem Ipsum?",
+      date: "May 20",
+      image: "/images/blog/post5.jpg",
+      excerpt:
+        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution...",
+      body: [
+        {
+          type: "paragraph",
+          text: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.",
+        },
+        { type: "heading", text: "Section" },
+        {
+          type: "paragraph",
+          text: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.",
+        },
+      ],
+    },
   ];
 }
 

@@ -1,24 +1,24 @@
-interface AuthInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface FormInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   type: string;
   id: string;
   placdholder?: string;
 }
 
-export function AuthInput({
+export function FormInput({
   label,
   type,
   id,
   placeholder,
   ...props
-}: AuthInputProps) {
+}: FormInputProps) {
   return (
     <div className="flex flex-col gap-2">
       <label
         htmlFor={id}
         className="text-[0.75rem] md:text-[0.875rem] leading-normal tracking-[0.14em] font-medium"
       >
-        {label}
+        {label} <span className="text-red-500">*</span>
       </label>
       <input
         id={id}
@@ -49,7 +49,7 @@ export const ContactForm = () => {
 
         {/* Right — form */}
         <form className="flex flex-col gap-6.75 form-container">
-          <AuthInput
+          <FormInput
             id="fullName"
             label="Full Name"
             type="text"
@@ -57,28 +57,28 @@ export const ContactForm = () => {
             required
           />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-7 gap-y-6.75">
-            <AuthInput
+            <FormInput
               id="email"
               label="Email Address"
               type="email"
               placeholder="Email Address"
               required
             />
-            <AuthInput
+            <FormInput
               id="phone"
               label="Phone Number"
               type="tel"
               placeholder="Phone Number"
               required
             />
-            <AuthInput
+            <FormInput
               id="company"
               label="Company"
               type="text"
               placeholder="Your Company"
               required
             />
-            <AuthInput
+            <FormInput
               id="jobTitle"
               label="Job Title"
               type="text"
