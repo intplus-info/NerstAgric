@@ -13,7 +13,7 @@ export const Logo = ({
       src="/logo.svg"
       alt="NerstAgric Logo"
       width={212}
-      height={53.53}
+      height={54}
       priority
       className={className}
     />

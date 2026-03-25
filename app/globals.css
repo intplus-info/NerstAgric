@@ -85,17 +85,3 @@
   border-width: 0.5px;
   border-color: #4961791A;
 }
-
-@utility form-container {
-  & label {
-    @apply section-text font-bold mb-2 block;
-  }
-  
-  & input {
-    @apply border p-2 rounded-lg;
-    
-    &::placeholder {
-      @apply text-slate-300;
-    }
-  }
-}

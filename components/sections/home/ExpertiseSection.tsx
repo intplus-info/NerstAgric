@@ -57,6 +57,7 @@ export const ExpertiseSection = () => {
               src={item.image}
               alt={item.title}
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw"
               className="object-cover rounded-[5px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out z-0"
             />
           </Link>

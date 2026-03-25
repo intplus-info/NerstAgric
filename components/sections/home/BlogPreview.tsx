@@ -4,136 +4,144 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { Post } from "@/lib/blog";
-
-const POSTS_PER_PAGE = 3;
+import { ArrowUpRight } from "@/components/ui/Icons";
 
 export const BlogPreview = ({ posts }: { posts: Post[] }) => {
-  const [page, setPage] = useState(0);
+  const [index, setIndex] = useState(0);
 
-  const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
-  const start = page * POSTS_PER_PAGE;
-  const visible = posts.slice(start, start + POSTS_PER_PAGE);
+  const visible = posts.slice(index, index + 3);
   const [featured, ...rest] = visible;
 
   return (
-    <section className="w-full px-8 sm:px-14 md:px-20 lg:px-26.25 py-16 md:py-24">
+    <section className="w-full px-12 sm:px-18 md:px-24 lg:px-27.5 py-16">
       {/* Header */}
-      <div className="flex items-center justify-between mb-10">
-        <h2 className="text-text-main text-2xl md:text-3xl font-semibold">
+      <div className="flex items-center justify-between mb-11.5 font-urbanist">
+        <h2 className="text-[1.6rem] md:text-[2.01875rem] leading-[43.71px] font-medium">
           Blog
         </h2>
         <Link
           href="/blog"
-          className="flex items-center gap-2 text-sm text-text-muted border border-gray-200 px-4 py-1.5 rounded-full hover:border-primary hover:text-primary transition-colors"
+          className="flex items-center gap-3.5 bg-[#E8E8E8] px-3.25 py-2.25 rounded-[37.21px] hover:bg-[#E8E8E8]/40 transition-colors"
         >
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M7 17L17 7M17 7H7M17 7V17"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          <ArrowUpRight size={18} />
           See all blog
         </Link>
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-3 min-h-[286.5px] md:min-h-[412.67px]">
         {/* Featured */}
-        <Link
-          href={`/blog/${featured.slug}`}
-          className="group md:col-span-1 flex flex-col gap-3"
-        >
-          <div className="relative w-full aspect-4/3 overflow-hidden rounded-lg">
+        <div className="group md:col-span-1 flex flex-col">
+          <div className="relative w-full aspect-489/275 mb-3.5 overflow-hidden">
             <Image
               src={featured.image}
               alt={featured.title}
               fill
-              className="object-cover group-hover:scale-105 transition-transform duration-300"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw"
+              priority
+              className="object-cover"
             />
           </div>
-          <span className="text-text-muted text-xs">{featured.date}</span>
-          <h3 className="font-semibold text-text-main group-hover:text-primary transition-colors">
+          <span className="text-[0.665rem] leading-[14.3px] mb-[12.6px]">
+            {featured.date}
+          </span>
+          <h3 className="text-[0.8rem] md:text-[0.91625rem] leading-[18.57px] font-medium mb-3 max-w-[40ch] line-clamp-2 min-h-9.5">
             {featured.title}
           </h3>
-        </Link>
+          <Link
+            href={`/blog/${featured.slug}`}
+            className="opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out bg-[#0DB04A] flex justify-between items-center pl-3 pr-5 py-2 md:py-3"
+          >
+            <span className="text-white text-[1rem] md:text-[1.125rem] leading-[28.75px] font-medium font-urbanist">
+              Read More...
+            </span>
+            <span className="p-1 lg:w-[26.19px] max-sm:scale-90 aspect-square rounded-full bg-white flex justify-center items-center">
+              <ArrowUpRight />
+            </span>
+          </Link>
+        </div>
 
         {/* Rest */}
-        {rest.map((post) => (
-          <Link
-            key={post.slug}
-            href={`/blog/${post.slug}`}
-            className="group flex flex-col gap-3"
-          >
-            <div className="relative w-full aspect-4/3 overflow-hidden rounded-lg">
-              <Image
-                src={post.image}
-                alt={post.title}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
-              />
+        <div className="grid grid-cols-2 gap-3">
+          {rest.map((post) => (
+            <div
+              key={post.slug}
+              className="group flex flex-col min-h-50.75 md:min-h-[412.67px]"
+            >
+              <div className="relative w-full aspect-video md:aspect-318.5/232 mb-3.5 overflow-hidden">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 25vw"
+                  className="object-cover"
+                />
+              </div>
+              <span className="text-[0.665rem] leading-[14.3px] mb-[12.6px]">
+                {post.date}
+              </span>
+              <h3 className="text-[0.8rem] md:text-[0.91625rem] leading-[18.57px] font-medium line-clamp-2 min-h-9.5">
+                {post.title}
+              </h3>
             </div>
-            <span className="text-text-muted text-xs">{post.date}</span>
-            <h3 className="font-semibold text-text-main group-hover:text-primary transition-colors">
-              {post.title}
-            </h3>
-          </Link>
-        ))}
+          ))}
+        </div>
       </div>
 
       {/* Pagination */}
-      <div className="flex items-center justify-end gap-2 mt-8">
-        <button
-          onClick={() => setPage((p) => Math.max(0, p - 1))}
-          disabled={page === 0}
-          aria-label="Previous posts"
-          className="w-8 h-8 flex items-center justify-center border border-gray-200 rounded-full hover:border-primary hover:text-primary transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-        >
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
+      <div className="flex justify-end">
+        <div className="inline-flex items-center gap-2 mt-8 rounded-[37.21px] p-1 overflow-hidden bg-black/5">
+          <button
+            onClick={() => setIndex((i) => Math.max(0, i - 1))}
+            disabled={index === 0}
+            aria-label="Previous posts"
+            className="flex items-center justify-center p-3 hover:bg-black/8 transition-colors disabled:opacity-30 disabled:cursor-not-allowed rounded-[37.21px] group"
           >
-            <path
-              d="M15 19l-7-7 7-7"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
-        <button
-          onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
-          disabled={page === totalPages - 1}
-          aria-label="Next posts"
-          className="w-8 h-8 flex items-center justify-center border border-gray-200 rounded-full hover:border-primary hover:text-primary transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-        >
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
+            <svg
+              aria-hidden="true"
+              width="10"
+              height="10"
+              viewBox="0 0 10 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.89518 4.81242L0.728516 4.81242M0.728516 4.81242L4.81185 8.89575M0.728516 4.81242L4.81185 0.729085"
+                stroke="#0DB04A"
+                stroke-width="1.45833"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
+          {/* Vertical Divider */}
+          <div className="w-0.5 h-6 bg-gray-300 mx-1" />
+
+          <button
+            onClick={() => setIndex((i) => Math.min(posts.length - 3, i + 1))}
+            disabled={index >= posts.length - 3}
+            aria-label="Next posts"
+            className="flex items-center justify-center p-3 hover:bg-black/8 transition-colors disabled:opacity-30 disabled:cursor-not-allowed rounded-[37.21px] group"
           >
-            <path
-              d="M9 5l7 7-7 7"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
+            <svg
+              aria-hidden="true"
+              width="10"
+              height="10"
+              viewBox="0 0 10 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.729817 4.81242L8.89648 4.81242M8.89648 4.81242L4.81315 8.89575M8.89648 4.81242L4.81315 0.729085"
+                stroke="#0DB04A"
+                stroke-width="1.45833"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
     </section>
   );

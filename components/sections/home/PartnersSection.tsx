@@ -10,14 +10,14 @@ const partners = [
   {
     name: "Partner 2",
     logo: "/images/partners/g-and-s.png",
-    width: 116.99,
+    width: 117,
     height: 97,
   },
   {
     name: "Partner 3",
     logo: "/images/partners/hh-farms.png",
     width: 70,
-    height: 57.77,
+    height: 58,
   },
   {
     name: "Partner 4",
@@ -29,7 +29,7 @@ const partners = [
     name: "Partner 5",
     logo: "/images/partners/iita.png",
     width: 111,
-    height: 53.53,
+    height: 54,
   },
   {
     name: "Partner 6",
@@ -41,7 +41,7 @@ const partners = [
 
 export const PartnersSection = () => {
   return (
-    <section className="w-full px-8 sm:px-20 md:px-26 lg:px-28.75 py-16 md:py-22">
+    <section className="w-full px-6 sm:px-20 md:px-26 lg:px-28.75 py-16 md:py-22">
       <h2 className="section-head mb-10.75">
         Our Clients & Partners
       </h2>
