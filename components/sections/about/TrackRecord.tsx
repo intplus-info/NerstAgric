@@ -16,7 +16,7 @@ export const TrackRecord = () => {
         States, our footprint reflects our deep understanding of the diverse
         Nigerian agricultural landscape. Our portfolio includes:
       </p>
-      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-16 gap-y-3 max-w-[890px] mx-auto list-disc list-outside pl-4 marker:text-[8px]">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-16 gap-y-3 max-w-222.5 mx-auto list-disc list-outside pl-4 marker:text-[8px]">
         {achievements.map((item) => (
           <li
             key={item}
