@@ -8,7 +8,7 @@ export const BlogList = ({ posts }: { posts: Post[] }) => {
   const alternatePosts = rest.slice(3);
 
   return (
-    <section className="w-full px-12 sm:px-17 md:px-20 lg:px-25.75 py-10 md:py-14 flex flex-col gap-11.75">
+    <section className="w-full px-6 sm:px-14 md:px-20 lg:px-25.75 py-10 md:py-14 flex flex-col gap-11.75">
       {/* Featured post — horizontal card */}
       <article className="overflow-hidden grid grid-cols-1 md:grid-cols-2 md:gap-x-8 lg:gap-x-10.25">
         <div className="flex flex-col justify-between p-11.25 gap-6">
@@ -49,7 +49,7 @@ export const BlogList = ({ posts }: { posts: Post[] }) => {
           {gridPosts.map((post) => (
             <article
               key={post.slug}
-              className="border border-gray-200 rounded-lg overflow-hidden flex flex-col"
+              className="overflow-hidden flex flex-col"
             >
               <div className="relative w-full aspect-video">
                 <Image
@@ -94,7 +94,7 @@ export const BlogList = ({ posts }: { posts: Post[] }) => {
               key={post.slug}
               className="grid grid-cols-1 md:grid-cols-2 items-center"
             >
-              <div className="flex flex-col gap-4 px-19">
+              <div className="flex flex-col gap-4 px-8 md:px-16 lg:px-19 py-12 md:py-22 lg:py-27">
                 <h2 className="text-black text-[2.5rem] md:text-[2.7775rem] leading-[100%] font-bold">
                   {post.title}
                 </h2>
