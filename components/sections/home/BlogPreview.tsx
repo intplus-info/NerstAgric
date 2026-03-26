@@ -9,7 +9,9 @@ import { ArrowUpRight } from "@/components/ui/Icons";
 export const BlogPreview = ({ posts }: { posts: Post[] }) => {
   const [index, setIndex] = useState(0);
 
-  const visible = posts.slice(index, index + 3);
+  const maxIndex = Math.max(0, posts.length - 3);
+  const safeIndex = Math.min(index, maxIndex);
+  const visible = posts.slice(safeIndex, safeIndex + 3);
   const [featured, ...rest] = visible;
 
   return (
@@ -119,8 +121,8 @@ export const BlogPreview = ({ posts }: { posts: Post[] }) => {
           <div className="w-0.5 h-6 bg-gray-300 mx-1" />
 
           <button
-            onClick={() => setIndex((i) => Math.min(posts.length - 3, i + 1))}
-            disabled={index >= posts.length - 3}
+            onClick={() => setIndex((i) => Math.min(maxIndex, i + 1))}
+            disabled={index >= maxIndex}
             aria-label="Next posts"
             className="flex items-center justify-center p-3 hover:bg-black/8 transition-colors disabled:opacity-30 disabled:cursor-not-allowed rounded-[37.21px] group"
           >

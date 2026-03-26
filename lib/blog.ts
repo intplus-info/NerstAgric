@@ -98,21 +98,26 @@ export async function getPosts(): Promise<Post[]> {
       ],
     },
     {
-      slug: "what-is-lorem-ipsum",
-      title: "What is Lorem Ipsum?",
-      date: "May 20",
+      slug: "climate-smart-agriculture-nigeria",
+      title: "Climate-Smart Agriculture: How Nigerian Farmers Are Adapting",
+      date: "10.03.2026",
       image: "/images/blog/post5.jpg",
       excerpt:
-        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution...",
+        "As climate patterns shift unpredictably across sub-Saharan Africa, Nigerian farmers are turning to data-driven techniques and drought-resistant crop varieties to protect their yields.",
       body: [
         {
           type: "paragraph",
-          text: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.",
+          text: "The effects of climate change are no longer abstract projections for Nigerian farmers — they are lived realities. Erratic rainfall, prolonged dry seasons, and soil degradation are reshaping how agriculture is practiced across the country.",
         },
-        { type: "heading", text: "Section" },
+        { type: "heading", text: "Drought-Resistant Varieties" },
         {
           type: "paragraph",
-          text: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.",
+          text: "Research institutions across Nigeria have been developing and distributing improved seed varieties capable of thriving under reduced rainfall conditions, with early adoption showing promising yield stability.",
+        },
+        { type: "heading", text: "The Role of Technology" },
+        {
+          type: "paragraph",
+          text: "From satellite soil monitoring to mobile weather alerts, agritech tools are giving smallholder farmers access to information that was previously only available to large commercial operations.",
         },
       ],
     },
