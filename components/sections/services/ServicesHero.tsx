@@ -14,7 +14,7 @@ export const ServicesHero = () => {
       />
       <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
 
-      <div className="absolute bottom-0 left-0 right-0 z-10 bg-black/42 grid place-items-center text-center px-8 md:pt-10.75 md:pb-28">
+      <div className="absolute bottom-0 left-0 right-0 z-10 bg-black/42 grid place-items-center text-center px-8 pt-6 md:pt-10.75 pb-18 md:pb-28">
         <h1 className="text-[2rem] md:text-[2.1875rem] leading-10 md:leading-12.25 tracking-[0.09em] font-semibold mb-3">
           Our Services
         </h1>
