@@ -36,10 +36,10 @@ export default async function BlogPostPage({
           />
         </div>
         <div className="px-4 md:px-24 lg:px-28.25 pt-8 md:pt-11.5 pb-16.75">
-          <h1 className="text-text-main text-3xl md:text-4xl font-bold leading-tight mb-3">
+          <h1 className="text-[#2D3748] text-[2.2rem] md:text-[2.8rem] lg:text-[3.125rem] leading-[100%] font-bold mb-4 md:mb-5.25">
             {post.title}
           </h1>
-          <p className="text-text-muted text-sm mb-10">{post.date}</p>
+          <p className="text-[#718096] text-[1.125rem] md:-text-[1.25rem] leading-[100%] mb-14 md:mb-19">{post.date}</p>
 
           <div className="flex flex-col gap-6">
             {post.body.map((block, index) => {
@@ -56,7 +56,7 @@ export default async function BlogPostPage({
               return (
                 <p
                   key={index}
-                  className="text-text-muted text-sm leading-relaxed"
+                  className="text-[0.95rem] md:text-[1.11125rem] leading-5 md:leading-[24.89px]"
                 >
                   {block.text}
                 </p>
