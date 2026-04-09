@@ -6,6 +6,9 @@ import { Logo } from "../Logo";
 import { Plus, ArrowUpRight } from "../ui/Icons";
 import Link from "next/link";
 
+// Example admin check — replace with your auth logic
+const isAdmin = true; // <-- replace with real check
+
 const links = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
@@ -60,13 +63,24 @@ export const Navbar = () => {
           {/* Logo */}
           <Logo link={true} className="w-40 md:w-48 lg:w-53" />
 
-          <div className="hidden md:grid md:grid-cols-3 md:gap-x-12 lg:gap-x-16 md:gap-y-5">
+          {/* Desktop links */}
+          <div className="hidden md:grid md:grid-cols-4 md:gap-x-12 lg:gap-x-16 md:gap-y-5 items-center">
             {links.map((link) => (
               <NavLink key={link.href} {...link} />
             ))}
+
+            {/* Admin-only "+ Blog" button */}
+            {isAdmin && (
+              <Link href="/studio">
+                <button className="flex items-center gap-2 text-white uppercase text-[15.75px] font-semibold tracking-[0.2em] hover:text-accent">
+                  <Plus />
+                  Add Blog
+                </button>
+              </Link>
+            )}
           </div>
 
-          {/* Hamburger button — visible on mobile only */}
+          {/* Hamburger button — mobile */}
           <button
             className="md:hidden p-2"
             onClick={() => setIsOpen(true)}
@@ -74,7 +88,6 @@ export const Navbar = () => {
             aria-controls="mobile-menu"
             aria-label="Open menu"
           >
-            {/* hamburger lines */}
             <span className="block w-6 h-0.5 bg-white mb-1.5" />
             <span className="block w-6 h-0.5 bg-white mb-1.5" />
             <span className="block w-6 h-0.5 bg-white" />
@@ -94,14 +107,12 @@ export const Navbar = () => {
             : "opacity-0 pointer-events-none"
         }`}
       >
-        {/* Backdrop */}
         <div
           className="absolute inset-0 bg-black/80"
           onClick={() => setIsOpen(false)}
           aria-hidden="true"
         />
 
-        {/* Drawer panel */}
         <div
           className={`absolute top-0 right-0 h-full w-4/5 flex flex-col px-8 py-6.25 gap-6 transition-transform duration-300 ${
             isOpen ? "translate-x-0" : "translate-x-full"
@@ -119,7 +130,7 @@ export const Navbar = () => {
             </span>
           </button>
 
-          {/* Nav links — stacked vertically */}
+          {/* Mobile nav links */}
           <div className="flex flex-col gap-5">
             {links.map((link) => (
               <NavLink
@@ -128,6 +139,19 @@ export const Navbar = () => {
                 onClick={() => setIsOpen(false)}
               />
             ))}
+
+            {/* Mobile admin "+ Blog" button */}
+            {isAdmin && (
+              <Link href="/studio">
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center gap-2 text-white uppercase text-[15.75px] font-semibold tracking-[0.2em] hover:text-accent"
+                >
+                  <Plus />
+                  Add Blog
+                </button>
+              </Link>
+            )}
           </div>
         </div>
       </div>

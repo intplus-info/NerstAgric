@@ -8,24 +8,27 @@ export const HeroSection = () => {
       <Navbar />
       {/* Background image */}
       <Image
-        src="/images/hero.jpg"
-        alt="Agricultural field"
-        fill
-        className="object-cover object-center"
-        priority
-      />
-
+  src="/hero/hero.gif"
+  alt="Agricultural field"
+  fill
+  unoptimized       // ← add this — Next.js doesn't optimize GIFs, this prevents warnings
+  className="object-cover object-center"
+  priority
+/>
       {/* Hero content */}
       <div className="relative z-10 flex flex-col items-end justify-end h-full min-h-screen pb-50 px-8 sm:px-14 md:px-20 lg:px-26.25">
         <div className="max-w-172.5">
           {/* Top CTA pill */}
           <div className="mb-2.75">
-            <Link
-              href="/contact"
+           <Link
+              href="https://calendly.com/nerstagric"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Book a free 30 minutes consultation on Calendly"
               className="inline-flex items-center bg-white/21 text-white text-[0.8rem] sm:text-[1rem] md:text-[1.25rem] font-semibold tracking-[0.02em] px-6 md:px-8 lg:px-10 py-2.5 md:py-4.25 rounded-[11px] hover:bg-white/30 transition-colors"
-            >
-              Get Free 30 Minutes Consultation
-            </Link>
+              >
+               Get Free 30 Minutes Consultation
+           </Link>
           </div>
 
           {/* Headline */}
