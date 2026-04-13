@@ -6,6 +6,7 @@ import { PartnersSection } from "@/components/sections/home/PartnersSection";
 import { BlogPreview } from "@/components/sections/home/BlogPreview";
 import { ContactForm } from "@/components/ui/ContactForm";
 import { getPosts } from "@/lib/blog";
+import { FAQSection } from "@/components/sections/home/FAQSection";
 
 export default async function Home() {
   const posts = await getPosts();
@@ -18,6 +19,7 @@ export default async function Home() {
       <WhyUsSection />
       <PartnersSection />
       <BlogPreview posts={posts} />
+      <FAQSection/>
       <ContactForm />
     </main>
   );

@@ -46,10 +46,15 @@ export const WhyUsSection = () => {
       </div>
       <div className="flex justify-center">
         <Link
-          href="/contact"
+          href="https://calendly.com/nerstagric"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Book a free 30 minutes consultation on Calendly"
+              // className="inline-flex items-center bg-white/21 text-white text-[0.8rem] sm:text-[1rem] md:text-[1.25rem] font-semibold tracking-[0.02em] px-6 md:px-8 lg:px-10 py-2.5 md:py-4.25 rounded-[11px] hover:bg-white/30 transition-colors"
+
           className="max-sm:w-full bg-primary-light hover:bg-accent text-white px-9 py-2.5 rounded-[13px] text-[0.95rem] md:text-[1.125rem] leading-7.25 font-medium text-center line-clamp-1 transition-colors"
         >
-          Book a Free 30-Minute Consultation
+        Book a Free 30-Minutes Consultation
         </Link>
       </div>
     </section>

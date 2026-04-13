@@ -1,22 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Plus } from "@/components/ui/Icons";
+import { getFAQs } from "@/sanity/lib/faq";
 
-const faqs = [
-  { question: "What exactly does NerstAgric do?" },
-  { question: "Which states do you currently operate in?" },
-  { question: "Who are your typical clients?" },
-  { question: "Do you help with land acquisition and clearing?" },
-  { question: "How do I start a project with NerstAgric?" },
-  { question: "How do you ensure the success of a new farm project?" },
-  { question: "Do you offer staff training?" },
-  { question: 'What is the "Value Chain Optimization" service?' },
-  { question: "Can you help me secure funding for my farm?" },
-];
 
 export const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [faqs, setFaqs] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchFAQs = async () => {
+      const data = await getFAQs();
+      setFaqs(data);
+    };
+
+    fetchFAQs();
+  }, []);
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -68,10 +68,9 @@ export const FAQSection = () => {
                     </span>
                   </button>
 
-                  {/* Answer — empty for now, add content when available */}
                   {isOpen && (
                     <p className="text-text-muted text-sm leading-relaxed pb-5 pl-7">
-                      Answer coming soon.
+                      {faq.answer}
                     </p>
                   )}
                 </div>
