@@ -3,15 +3,28 @@ import { Inter, Urbanist } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/layout/Footer";
 
+
 const inter = Inter({
-  variable: "--font-inter",
   subsets: ["latin"],
-});
+  display: "swap",
+  variable: "--font-inter",
+})
 
 const urbanist = Urbanist({
-  variable: "--font-urbanist",
   subsets: ["latin"],
-});
+  display: "swap",
+  variable: "--font-urbanist",
+})
+
+// const inter = Inter({
+//   variable: "--font-inter",
+//   subsets: ["latin"],
+// });
+
+// const urbanist = Urbanist({
+//   variable: "--font-urbanist",
+//   subsets: ["latin"],
+// });
 
 export const metadata: Metadata = {
   title: "NerstAgric",

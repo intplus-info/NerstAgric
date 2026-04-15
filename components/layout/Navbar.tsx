@@ -69,7 +69,7 @@ export const Navbar = () => {
               <NavLink key={link.href} {...link} />
             ))}
 
-            {/* Admin-only "+ Blog" button */}
+            {/* Admin-only "+ Blog" button
             {isAdmin && (
               <Link href="/studio">
                 <button className="flex items-center gap-2 text-white uppercase text-[15.75px] font-semibold tracking-[0.2em] hover:text-accent">
@@ -77,7 +77,7 @@ export const Navbar = () => {
                   Add Blog
                 </button>
               </Link>
-            )}
+            )} */}
           </div>
 
           {/* Hamburger button — mobile */}
@@ -141,7 +141,7 @@ export const Navbar = () => {
             ))}
 
             {/* Mobile admin "+ Blog" button */}
-            {isAdmin && (
+            {/* {isAdmin && (
               <Link href="/studio">
                 <button
                   onClick={() => setIsOpen(false)}
@@ -151,7 +151,7 @@ export const Navbar = () => {
                   Add Blog
                 </button>
               </Link>
-            )}
+            )} */}
           </div>
         </div>
       </div>
