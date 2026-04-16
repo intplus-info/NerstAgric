@@ -23,14 +23,7 @@ const [featured, ...rest] = visible;
 
 if (!featured) return null;
 
-  // const visible = posts.slice(safeIndex, safeIndex + 3);
-
-  // // extra safety to prevent crash
-  // if (!visible || visible.length === 0) return null;
-
-  // const [featured, ...rest] = visible;
-
-  // if (!featured) return null;
+  
 
 
 
