@@ -1,8 +1,17 @@
+"use client";
+
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
+
+/* ---------------- INPUT ---------------- */
+
 interface FormInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   type: string;
   id: string;
-  placdholder?: string;
+  placeholder?: string;
+  name: string;
 }
 
 export function FormInput({
@@ -10,6 +19,7 @@ export function FormInput({
   type,
   id,
   placeholder,
+  name,
   ...props
 }: FormInputProps) {
   return (
@@ -20,8 +30,10 @@ export function FormInput({
       >
         {label} <span className="text-red-500">*</span>
       </label>
+
       <input
         id={id}
+        name={name}
         type={type}
         placeholder={placeholder}
         {...props}
@@ -31,15 +43,53 @@ export function FormInput({
   );
 }
 
+/* ---------------- FORM ---------------- */
+
 export const ContactForm = () => {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [loading, setLoading] = useState(false);
+
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!formRef.current) return;
+
+    setLoading(true);
+    toast.loading("Sending message...", { id: "sendEmail" });
+
+    try {
+      const result = await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        formRef.current,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+
+      console.log("EMAILJS RESULT:", result);
+
+      toast.success("Message sent successfully!", { id: "sendEmail" });
+      formRef.current.reset();
+    } catch (error) {
+      console.error("EMAILJS ERROR:", error);
+
+      toast.error("Failed to send message. Try again.", {
+        id: "sendEmail",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section className="w-full primary-gradient text-white px-8 sm:px-14 md:px-20 lg:px-24.5 py-14 md:py-16">
       <div className="grid justify-center grid-cols-1 md:grid-cols-[minmax(0,391px)_minmax(0,646px)] gap-12 md:gap-11.75">
-        {/* Left — heading */}
+
+        {/* Left */}
         <div className="flex flex-col gap-4 font-urbanist md:gap-5.75">
           <h2 className="text-[1.6rem] md:text-[2rem] lg:text-[2.3325rem] leading-10 md:leading-[52.23px] font-medium text-pretty">
             Talk to Our Agriculture Experts
           </h2>
+
           <p className="section-text font-light">
             Speak directly with our experts to discuss your agribusiness ideas,
             project plans, or investment opportunities and receive professional
@@ -47,45 +97,59 @@ export const ContactForm = () => {
           </p>
         </div>
 
-        {/* Right — form */}
-        <form className="flex flex-col gap-6.75 form-container">
+        {/* Right */}
+        <form
+          ref={formRef}
+          onSubmit={sendEmail}
+          className="flex flex-col gap-6.75"
+        >
           <FormInput
             id="fullName"
+            name="fullName"
             label="Full Name"
             type="text"
             placeholder="Full Name"
             required
           />
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-7 gap-y-6.75">
             <FormInput
               id="email"
+              name="email"
               label="Email Address"
               type="email"
               placeholder="Email Address"
               required
             />
+
             <FormInput
               id="phone"
+              name="phone"
               label="Phone Number"
               type="tel"
               placeholder="Phone Number"
               required
             />
+
             <FormInput
               id="company"
+              name="company"
               label="Company"
               type="text"
               placeholder="Your Company"
               required
             />
+
             <FormInput
               id="jobTitle"
+              name="jobTitle"
               label="Job Title"
               type="text"
               placeholder="Job Title"
               required
             />
           </div>
+
           <div className="flex flex-col gap-2">
             <label
               htmlFor="description"
@@ -93,19 +157,22 @@ export const ContactForm = () => {
             >
               Description
             </label>
+
             <textarea
               id="description"
+              name="description"
               placeholder="Describe your needs"
               rows={7}
-              className="border rounded-[5px] bg-white/9 p-3 placeholder:text-white/46 placeholder:text-[0.75rem] placeholder:md:text-[0.875rem] placeholder:leading-normal placeholder:tracking-[0.015em]"
+              className="border rounded-[5px] bg-white/9 p-3 placeholder:text-white/46 placeholder:text-[0.75rem] placeholder:md:text-[0.875rem]"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full text-[#14293E] text-[0.75rem] md:text-[0.875rem] leading-normal tracking-[0.015em] border rounded-[5px] bg-white px-3 py-[14.5px] hover:bg-white/90 transition-colors mt-2"
+            disabled={loading}
+            className="w-full text-[#14293E] text-[0.75rem] md:text-[0.875rem] border rounded-[5px] bg-white px-3 py-[14.5px]"
           >
-            Send Message
+            {loading ? "Sending..." : "Send Message"}
           </button>
         </form>
       </div>

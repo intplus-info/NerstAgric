@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Urbanist } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/layout/Footer";
+import { Toaster } from "react-hot-toast";
 
 
 const inter = Inter({
@@ -42,6 +43,7 @@ export default function RootLayout({
         className={`${inter.variable} ${urbanist.variable} antialiased flex flex-col min-h-screen`}
       >
         {children}
+          <Toaster position="top-right" />
         <Footer />
       </body>
     </html>

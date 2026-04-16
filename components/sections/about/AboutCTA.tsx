@@ -27,12 +27,22 @@ export const AboutCTA = () => {
           >
             Contact Us
           </Link>
-          <Link
+          {/* <Link
             href="/contact"
             className="bg-white text-primary text-[0.8rem] md:text-[1rem] leading-4 md:leading-[21.32px] p-3.5 hover:bg-white/70 transition-colors"
           >
             Get Your Free Consultation
-          </Link>
+          </Link> */}
+          <Link
+              href="https://calendly.com/nerstagric"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Book a free 30 minutes consultation on Calendly"
+               className="bg-white text-primary text-[0.8rem] md:text-[1rem] leading-4 md:leading-[21.32px] p-3.5 hover:bg-white/70 transition-colors">
+        
+            
+              Get Your Free Consultation
+            </Link>
         </div>
       </div>
     </section>

@@ -3,20 +3,28 @@ import { Plus } from "@/components/ui/Icons";
 
 const reasons = [
   {
-    title: "Deep Sector Expertise",
-    body: "Leverage over two decades of agricultural and project management expertise to navigate complex agribusiness challenges with confidence.",
+    title: "Integrity",
+    body: " We uphold honesty, transparency, and accountability in all our engagements, ensuring trust with clients, partners, and communities.",
   },
   {
-    title: "Implementation-First Approach",
-    body: "We prioritize your unique needs, moving beyond advisory to offer hands-on, on-ground implementation strategies that drive measurable results.",
+    title: "Sustainability",
+    body: "Sustainability We design agricultural systems that are environmentally responsible, economically viable, and socially impactful for long-term growth.",
   },
   {
-    title: "Proven Operational Success",
-    body: "Our successful collaborations in crop and livestock systems have helped investors and organizations grow, streamline, and achieve industrial-scale success.",
+    title: "Resilience",
+    body: " We embrace innovation, adaptability, and perseverance in building agricultural solutions that thrive in dynamic market and environmental conditions.",
   },
   {
-    title: "Tailored Agribusiness Strategies",
-    body: "We design frameworks specifically aligned with your investment goals, local soil conditions, and the ever-evolving agricultural market demands.",
+    title: "Data-Driven",
+    body: " Excellence We rely on technology, evidence, analytics, field insights, and measurable outcomes to guide strategic decisions and project execution.",
+  },
+  {
+    title: "Fidelity",
+    body: " We remain committed to our clients’ goals, our partnerships, and the long-term vision of transforming agriculture at scale.",
+  },
+  {
+    title: "Brand Promise",
+    body: " From consultation to implementation, we turn agribusiness ideas into scalable realities.",
   },
 ];
 
@@ -28,13 +36,9 @@ export const WhyChooseUs = () => {
         <div className="flex flex-col gap-8">
           <div>
             <h2 className="text-[1.4rem] md:text-[1.7775rem] leading-[35.56px] font-semibold mb-3.5">
-              Why Choose Us
+             Core Values
             </h2>
-            <p className="text-[0.875rem] md:text-[1rem] leading-4 md:leading-[21.93px] font-medium">
-              Partner with an agricultural consulting firm that delivers
-              innovative, implementation-focused strategies to drive growth and
-              operational transformation.
-            </p>
+            
           </div>
           <div className="relative w-full aspect-[489.78/327.11] overflow-hidden">
             <Image
