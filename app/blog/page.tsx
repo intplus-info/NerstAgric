@@ -58,7 +58,8 @@
 
 import { BlogHero } from "@/components/sections/blog/BlogHero";
 import BlogList from "@/components/sections/blog/BlogList";
-import { getPosts } from "@/lib/blog";
+// import { getPosts } from "@/lib/blog";
+import { getPosts } from "@/sanity/lib/blog";
 
 export const revalidate = 60;
 

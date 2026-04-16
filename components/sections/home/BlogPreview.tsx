@@ -144,8 +144,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Post } from "@/lib/blog";
 import { ArrowUpRight } from "@/components/ui/Icons";
+import { Post } from "@/sanity/lib/blog";
 
 export const BlogPreview = ({ posts }: { posts: Post[] }) => {
   if (!posts || posts.length === 0) return null;

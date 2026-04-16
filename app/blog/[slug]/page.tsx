@@ -86,7 +86,8 @@
 // }
 
 import { BlogHero } from "@/components/sections/blog/BlogHero";
-import { getPost, getPosts } from "@/lib/blog";
+// import { getPost, getPosts } from "@/lib/blog";
+import { getPosts, getPost } from "@/sanity/lib/blog";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
 import Image from "next/image";
 import { notFound } from "next/navigation";

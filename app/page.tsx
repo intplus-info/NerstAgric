@@ -5,7 +5,8 @@ import { WhyUsSection } from "@/components/sections/home/WhyUsSection";
 import { PartnersSection } from "@/components/sections/home/PartnersSection";
 import { BlogPreview } from "@/components/sections/home/BlogPreview";
 import { ContactForm } from "@/components/ui/ContactForm";
-import { getPosts } from "@/lib/blog";
+// import { getPosts } from "@/lib/blog";
+import { getPosts } from "@/sanity/lib/blog";
 import { FAQSection } from "@/components/sections/home/FAQSection";
 
 export default async function Home() {

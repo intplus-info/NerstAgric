@@ -89,7 +89,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Post } from "@/lib/blog";
+// import { Post } from "@/lib/blog";
+import { Post } from "@/sanity/lib/blog";
 import { ArrowUpRight } from "@/components/ui/Icons";
 
 export default function BlogList({ posts }: { posts: Post[] }) {
